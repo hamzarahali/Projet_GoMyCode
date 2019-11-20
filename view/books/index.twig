@@ -1,0 +1,52 @@
+{% extends "../index.twig" %}
+
+{% block pageTitle %} 
+    All Books
+{% endblock %}
+
+{% block main %}
+    <style>
+        .p1 { padding : 50px 100px }
+    </style>
+
+    <h2 class="alert alert-info py-5 text-center"> All Book </h2>
+
+    <div class="container">
+        <table class="table table-border table-hover">
+            
+            <tr class="alert alert-warning">
+                <th class="text-center"> Email  :  {{ user.email }} </th>
+            </tr>
+        </table>
+    </div>
+    {% if books is empty %}
+        <div class="form-group" style ="padding : 0px 200px">
+            <h3 class="alert alert-danger text-center container"> There is no books ine the data base </h3>
+        </div>
+    {% else %}
+        <div class="container p1">
+            <table class="table table-border table-hover">
+                <tr class="alert alert-info">
+                    <th> Id </th>
+                    <th> Hotel </th>
+                    <th> Number Person </th>
+                    <th> Date </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                {% for book in books %}
+                <tr>
+                    <td> {{ book.id }} </td>
+                    <td> {{ book.hotel._id }} </td>
+                    <td> {{ book.nbperson }} </td>
+                    <td> {{ book.date }} </td>
+                    <td> <a href="/books/edit/{{book.id}}" class="btn btn-success form-control">Edit</a> </td>
+                    <td> <a href="/books/print/{{book.id}}" class="btn btn-info form-control">print</a> </td>
+                    <td> <a href="/books/delete/{{book.id}}" class="btn btn-danger form-control">Delete</a> </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endif %}
+{% endblock %}

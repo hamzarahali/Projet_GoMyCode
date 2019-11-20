@@ -1,0 +1,44 @@
+{% extends "index.twig" %}
+
+{% block pageTitle %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <style>
+        .p1 { padding : 80px 340px 0px}
+    </style>
+<div class="container text-center p1">
+    <h3 class="alert alert-primary"> Sign In </h3>
+    <form action="/register" method="post">
+        <div class="form-group">
+            <label>User Name :</label>
+            <input name="username" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Email :</label>
+            <input name="email" type="email" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Password :</label>
+            <input name="password" type="password" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Register" class="btn btn-primary col-sm-7">
+        </div>
+    </form>
+</div>
+<div class="row form-group">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        {% if errors is defined %}
+            
+                {% for error in errors %}
+                    <p class="alert alert-danger text-center"> {{error}}   </p>
+                {% endfor %}
+            
+        {% endif %}
+    </div>
+    <div class="col-md-3"></div>
+</div>
+{% endblock %}

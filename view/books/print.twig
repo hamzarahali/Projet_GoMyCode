@@ -1,0 +1,56 @@
+{% extends "./index.twig" %}
+
+{% block pageTitel %}
+    Print
+{% endblock %}
+
+{% block main %}
+        <!-- Print -->
+        <script>
+            function myFunction() {
+                window.print();
+            }
+        </script>
+
+<style>
+    .p1 { padding : 30px 100px }
+</style>
+    <div class="container p1 text-center">
+                <h2 class="alert alert-success text-center"> Facture </h2>
+                <table class="table">
+                    <tr> 
+                        <td> <label> Id </label> </td>
+                        <td> : </td> 
+                        <td> {{book.id}} </td>
+                    </tr>
+                    <tr> 
+                        <td> <label> E-mail </label> </td>
+                        <td> : </td> 
+                        <td> {{user.email}} </td>
+                    </tr>
+                    <tr> 
+                        <td> <label> Date </label> </td> 
+                        <td> : </td>
+                        <td>  {{book.date}} </td>
+                    </tr>
+                    <tr> 
+                        <td> <label> Hotel  </label> </td> 
+                        <td> : </td>
+                        <td>  {{hotel.title}} </td>
+                    </tr>
+                    <tr> 
+                        <td> <label> Person </label> </td> 
+                        <td> : </td>
+                        <td>  {{book.nbperson}} </td>
+                    </tr>
+                    <tr> 
+                        <td> <label> Photo </label> </td>
+                        <td> : </td>
+                        <td>  <img src="{{hotel.image}}"  width="100" height="50">  </td>
+                    </tr>
+                </table>
+            <div class="form-group"> 
+                <button onclick="myFunction()" class="btn btn-warning">Print this page</button>
+            </div>
+        </div>
+{% endblock %}

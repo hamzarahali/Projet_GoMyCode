@@ -1,0 +1,77 @@
+{% extends "../index.twig" %}
+
+{% block pageTitle %}
+    Book
+{% endblock %}
+
+{% block main %}
+
+    <h2 class="jumbotron text-center"> Reserve Now </h2>    
+    
+    <div class="row"> 
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+                 <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8" style="padding : 0px 0px">
+                                <src img="" wid>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+            <form action="/books/book/{{hotel.id}}" method="post">
+                <div class="container"  style="padding : 20px 40px ">    
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                    <label for="sex"> Email  : </label>
+                            </div>          
+                            <div class="col-md-6">
+                                <input type="text" value="{{user.email}}" class="form-control" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                    <label for="sex"> Hotel  : </label>
+                            </div>          
+                            <div class="col-md-6">
+                                <option type="text" value="{{hotel.id}}" class="form-control" > {{hotel.title}} </option>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                    <label for="sex"> Date  : </label>
+                            </div>          
+                            <div class="col-md-6">
+                                <input type="datetime-local" name="date" class="form-control" id="sex" required value="<?php if (isset($_POST ['person'])) echo $_POST['date'] ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row"> 
+                            <div class="col-md-4">
+                                <label>Person :</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="number" name="nbperson" class="form-control" required>
+                            </div>
+                        </div>  
+                    </div>
+                    </div>       
+		        </div>            
+        <div class="row" style="padding:0px 0px">  
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <input type="submit" value="Reserve" class="btn btn-warning form-control">
+               
+            </div>
+        <div class="col-md-4"></div>
+    </div>
+	        </form>
+    </div>
+{% endblock %}
